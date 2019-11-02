@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect} from 'react';
 import './App.css';
+import axios from 'axios';
+
+import SpellGrid from './components/SpellGrid';
 
 function App() {
+  const [spells, setSpells] = useState([]);
+
+  useEffect(() => {
+    let i = 0
+    for (i=1; i<320; i++) {
+      axios
+        .get(`https://cors-anywhere.herokuapp.com/http://dnd5eapi.co/api/spells/${i}/`)
+        .then(response => {
+          setSpells(...spells, response.data)
+        })
+    }
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Spells</h1>
+      <SpellGrid spells={spells} />
     </div>
   );
 }

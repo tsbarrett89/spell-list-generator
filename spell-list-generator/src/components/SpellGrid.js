@@ -8,10 +8,11 @@ const SpellGrid = props => {
         <div>
             {Array.from(props.spells).map((spell, index) => (
                 <SpellCard 
-                key={index}
-                name={spell.name}
-                url={spell.url}
-            />
+                    key={index}
+                    name={spell.name}
+                    url={spell.url}
+                    characterClass={props.characterClass}
+                />
             ))}
         </div>
     )

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { applyMiddleware, createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ThunkMiddleware as Thunk } from 'redux-thunk';
+import Thunk from 'redux-thunk';
 
 import './index.css';
 

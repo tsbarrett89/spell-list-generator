@@ -2,19 +2,24 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const UserLogin = () => {
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
-    const onSubmit = data => console.log(data)
+    const onSubmit = data => {
+        console.log(data)
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <input
-                {...register("email", { pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"})} 
+            type="text"
+                {...register("email", { required: {value: true, message: "Email is required."}, pattern: { value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, message: "Valid email required" }})} 
             />
+            {errors.email && errors.email.message}
             <input
                 type="password"
-                {...register("password", { min: 6, max: 16 })}
+                {...register("password", { required: true, minLength: 6, maxLength: 16 })}
             />
+            {errors.password && <p>Password between 6 and 16 characters required.</p>}
             <button type="submit" />
         </form>
     )

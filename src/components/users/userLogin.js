@@ -12,7 +12,7 @@ const UserLogin = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <input
             type="text"
-                {...register("email", { required: {value: true, message: "Email is required."}, pattern: { value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, message: "Valid email required" }})} 
+                {...register("email", { required: {value: true, message: "Email is required."}, pattern: { value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, message: "Valid email required." }})} 
             />
             {errors.email && errors.email.message}
             <input

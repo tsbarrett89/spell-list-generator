@@ -20,6 +20,11 @@ const UserLogin = () => {
                 {...register("password", { required: true, minLength: 6, maxLength: 16 })}
             />
             {errors.password && <p>Password between 6 and 16 characters required.</p>}
+            <input
+                type="password"
+                {...register("password_verification", { required: { value: true, message: "Please verify password." }} )}
+            />
+            {errors.password_verification && errors.password_verification.message}
             <button type="submit" />
         </form>
     )

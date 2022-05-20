@@ -3,9 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const SpellList = () => {
     const spellList = useSelector((state) => state.spells)
+    const isFetching = useSelector((state) => state.isFetching)
+
+
 
     return (
-        <div>{spellList}</div>
+        <div>
+            {isFetching && <p>Loading Spells</p>}
+            {spellList}
+        </div>
     )
 }
 

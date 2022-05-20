@@ -1,0 +1,6 @@
+import axios from 'axios';
+
+export const FETCH_SPELLS_START = "FETCH_SPELLS_START"
+export const FETCH_SPELLS_SUCCESS = "FETCH_SPELLS_SUCCESS"
+export const FETCH_SPELLS_FAILURE = "FETCH_SPELLS_FAILURE"
+export const SAVE_SPELL = "SAVE_SPELL"

@@ -5,7 +5,7 @@ const initialState = {
     errorMessage: ''
 }
 
-const reducer = (state) => {
+const reducer = (state = initialState, action) => {
     return state
 }
 

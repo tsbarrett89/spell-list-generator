@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const UserLogin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const [passwordMatch, setPasswordMatch] = useState(false)
 
     const onSubmit = data => {
         console.log(data)
+
+        if(data.password_verification !== data.password){
+            setPasswordMatch(true)
+        }
     }
 
     return (
@@ -22,9 +27,12 @@ const UserLogin = () => {
             {errors.password && <p>Password between 6 and 16 characters required.</p>}
             <input
                 type="password"
-                {...register("password_verification", { required: { value: true, message: "Please verify password." }} )}
+                {...register("password_verification", 
+                { required: { value: true, message: "Please verify password." },
+                onChange: (e) => console.log()} )}
             />
             {errors.password_verification && errors.password_verification.message}
+            {passwordMatch && <p>Passwords must match.</p>}
             <button type="submit" />
         </form>
     )

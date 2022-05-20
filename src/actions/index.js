@@ -16,3 +16,10 @@ export const fetchSpells = spells => dispatch => {
             dispatch({ type: SET_SPELLS_FAILURE, payload: `Failed with ${err.status} status code.`})
         })
 }
+
+export const saveSpell = spell => {
+    return {
+        type: SAVE_SPELL,
+        payload: spell
+    }
+}

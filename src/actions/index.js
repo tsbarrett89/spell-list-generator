@@ -10,6 +10,7 @@ export const fetchSpells = spells => dispatch => {
     axios
         .get('https://www.dnd5eapi.co/api/spells')
         .then(res => {
+            console.log(res.data)
             dispatch({ type: SET_SPELLS_SUCCESS, payload: res.data.results })
         })
         .catch( err => {

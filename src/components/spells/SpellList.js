@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 const SpellList = () => {
+    const spellList = useSelector((state) => state.spells)
 
     return (
-        <div></div>
+        <div>{spellList}</div>
     )
 }
 

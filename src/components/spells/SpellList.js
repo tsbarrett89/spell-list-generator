@@ -9,13 +9,17 @@ const SpellList = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        fetchSpells()
-    }, [])
+        dispatch(fetchSpells())
+    }, [dispatch])
 
     return (
         <div>
             {isFetching && <p>Loading Spells</p>}
-            {spellList}
+            {spellList.map((spell) => {
+                return (
+                    <p>{spell.name}</p>
+                )
+            })}
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import UserLogin from './users/UserLogin'
 
@@ -10,9 +11,7 @@ const StartPage = () => {
             </div>
             <div>
                 <div>
-                    <button>
-                        Spells
-                    </button>
+                    <NavLink to='/spells'>Spells</NavLink>
                 </div>
                 <UserLogin />
             </div>

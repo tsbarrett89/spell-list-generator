@@ -9,11 +9,31 @@ import {
 
 const initialState = {
     user: {},
+    isSending: false,
     errorMessage: ""
 }
 
 const reducer = (state = initialState, action) => {
-    return state
+    switch(action.type){
+        case USER_REGISTRATION_START:
+            return {
+                ...state,
+                isSending: true
+            }
+        case USER_REGISTRATION_SUCCESS:
+            return {
+                ...state,
+                user: action.payload,
+                isSending: false
+            }
+        case USER_REGISTRATION_FAILURE:
+            return {
+                ...state,
+                isSending: false,
+                errorMessage: action.payload
+            }
+        default: return state
+    }
 }
 
 export default reducer

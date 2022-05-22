@@ -18,3 +18,15 @@ export const getCharacters = user => dispatch => {
             dispatch({ type: FETCH_CHARACTERS_FAILURE, payload: `Failed with ${err.status} status code.` })
         })
 }
+
+export const createCharacter = user => dispatch => {
+    dispatch({ type: CREATE_CHARACTER_START })
+    axios
+        .post('http://localhost:5000/character/create')
+        .then(res => {
+            dispatch({ type: CREATE_CHARACTER_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: CREATE_CHARACTER_FAILURE, payload: `Failed with ${err.status} status code.`})
+        })
+}

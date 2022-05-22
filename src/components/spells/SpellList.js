@@ -6,8 +6,8 @@ import { fetchSpells } from '../../actions';
 import SpellCard from './SpellCard';
 
 const SpellList = () => {
-    const spellList = useSelector((state) => state.spells)
-    const isFetching = useSelector((state) => state.isFetching)
+    const spellList = useSelector((state) => state.spellReducer.spells)
+    const isFetching = useSelector((state) => state.spellReducer.isFetching)
     const dispatch = useDispatch()
 
     useEffect(() => {

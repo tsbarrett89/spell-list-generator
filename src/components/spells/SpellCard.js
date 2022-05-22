@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const SpellCard = (props) => {
     const [ fetching, setFetching ] = useState(false)
     const [ showSpell, setShowSpell ] = useState(false)
+    const [ spellInfo, setSpellInfo ] = useState({})
 
     handleClick = () => {
         setFetching(true)
         useEffect(() => {
-            
+            axios
+                .get(spell => {
+                    setShowSpell(true)
+                    setSpellInfo(spell)
+                })
         }, [])
     }
     

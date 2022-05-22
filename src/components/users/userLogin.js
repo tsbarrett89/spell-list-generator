@@ -1,15 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { loginUser } from '../../actions/authActions';
 
 const UserLogin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const onSubmit = data => {
         dispatch(loginUser(data))
+        navigate('/dashboard')
     }
 
     return (

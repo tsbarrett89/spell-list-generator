@@ -9,6 +9,8 @@ const UserLogin = () => {
 
     const onSubmit = data => {
         console.log(data)
+
+        dispatchEvent(loginUser(data))
     }
 
     return (

@@ -5,6 +5,7 @@ const SpellCard = (props) => {
     const [ fetching, setFetching ] = useState(false)
     const [ showSpell, setShowSpell ] = useState(false)
     const [ spellInfo, setSpellInfo ] = useState({})
+    const [ error, setError ] = useState({})
 
     handleClick = () => {
         setFetching(true)
@@ -14,6 +15,7 @@ const SpellCard = (props) => {
                     setShowSpell(true)
                     setSpellInfo(spell)
                 })
+                .catch(err => setError(err))
         }, [])
     }
     

@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+
+import { registerUser } from '../../actions/authActions';
 
 const UserLogin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [passwordMatch, setPasswordMatch] = useState(false)
+    const dispatch = useDispatch()
 
     const onSubmit = data => {
         console.log(data)
 
         if(data.password_verification !== data.password){
             setPasswordMatch(true)
+        } else {
+            dispatch(registerUser(data))
         }
     }
 

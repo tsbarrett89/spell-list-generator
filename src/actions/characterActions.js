@@ -19,10 +19,10 @@ export const getCharacters = user => dispatch => {
         })
 }
 
-export const createCharacter = user => dispatch => {
+export const createCharacter = creds => dispatch => {
     dispatch({ type: CREATE_CHARACTER_START })
     axios
-        .post('http://localhost:5000/character/create')
+        .post('http://localhost:5000/character/create', creds)
         .then(res => {
             dispatch({ type: CREATE_CHARACTER_SUCCESS, payload: res.data })
         })

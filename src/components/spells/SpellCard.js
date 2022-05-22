@@ -8,11 +8,12 @@ const SpellCard = (props) => {
     const [ error, setError ] = useState({})
 
     const handleClick = () => {
+        setShowSpell(true)
         setFetching(true)
+        
         axios
             .get(`https://www.dnd5eapi.co${props.spell.url}`)
             .then(spell => {
-                setShowSpell(true)
                 setSpellInfo(spell.data)
             })
             .catch(err => setError(err))

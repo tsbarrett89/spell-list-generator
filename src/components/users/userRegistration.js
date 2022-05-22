@@ -10,7 +10,6 @@ const UserLogin = () => {
     const dispatch = useDispatch()
 
     const onSubmit = data => {
-        console.log(data)
         const creds = { email: data.email, password: data.password }
 
         if(data.password_verification !== data.password){

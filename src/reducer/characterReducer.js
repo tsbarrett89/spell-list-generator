@@ -32,6 +32,23 @@ const reducer = (state = initialState, action) => {
                 isFetching: false,
                 errorMessage: action.payload
             }
+        case CREATE_CHARACTER_START:
+            return {
+                ...state,
+                isFetching: true
+            }
+        case CREATE_CHARACTER_SUCCESS:
+            return {
+                ...state,
+                characters: [ ...state.characters, action.payload ],
+                isFetching: false
+            }
+        case CREATE_CHARACTER_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                errorMessage: action.payload
+            }
         default: return state
     }
 }

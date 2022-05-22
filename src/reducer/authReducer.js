@@ -32,6 +32,23 @@ const reducer = (state = initialState, action) => {
                 isSending: false,
                 errorMessage: action.payload
             }
+        case USER_LOGIN_START:
+            return {
+                ...state,
+                isSending: true
+            }
+        case USER_LOGIN_SUCCESS:
+            return {
+                ...state,
+                user: action.payload,
+                isSending: false
+            }
+        case USER_LOGIN_FAILURE:
+            return {
+                ...state,
+                isSending: false,
+                errorMessage: action.payload
+            }
         default: return state
     }
 }

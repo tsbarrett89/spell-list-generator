@@ -1,4 +1,9 @@
-const reducer = (state) => {
+const initialState = {
+    user: {},
+    errorMessage: ""
+}
+
+const reducer = (state = initialState, action) => {
     return state
 }
 

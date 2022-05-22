@@ -8,6 +8,7 @@ import UserLogin from './components/users/UserLogin';
 import UserRegistration from './components/users/UserRegistration';
 import SpellList from './components/spells/SpellList';
 import SavedList from './components/spells/SavedList';
+import UserDashboard from './components/users/UserDashboard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/login' element={<UserLogin />} />
         <Route path='/register' element={<UserRegistration />} />
         <Route path='/saved-spells' element={<SavedList />} />
+        <Route path='/dashboard' element={<UserDashboard />} />
       </Routes>
       
     </div>

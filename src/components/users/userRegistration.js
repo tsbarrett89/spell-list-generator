@@ -11,11 +11,12 @@ const UserLogin = () => {
 
     const onSubmit = data => {
         console.log(data)
+        const creds = { email: data.email, password: data.password }
 
         if(data.password_verification !== data.password){
             setPasswordMatch(true)
         } else {
-            dispatch(registerUser(data))
+            dispatch(registerUser(creds))
         }
     }
 

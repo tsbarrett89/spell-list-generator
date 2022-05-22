@@ -17,3 +17,14 @@ export const registerUser = creds => dispatch => {
         })
         .catch(err => dispatch({ type: USER_LOGIN_FAILURE, payload: err.response }))
 }
+
+export const loginUser = creds => dispatch => {
+    dispatch({ type: USER_LOGIN_START })
+    axios
+        .post('http://localhost:5000/user/login', creds)
+        .then(res => {
+            localStorage.setItem('token', res.data.token)
+            dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data })
+        })
+        .catch(err => dispatch({ type: USER_LOGIN_FAILURE, payload: err.response }))
+}

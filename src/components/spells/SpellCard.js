@@ -8,22 +8,28 @@ const SpellCard = (props) => {
     const [ error, setError ] = useState({})
 
     const handleClick = () => {
-        setShowSpell(true)
-        setFetching(true)
+        if(showSpell){
+            setShowSpell(false)
+        } else {
+            setShowSpell(true)
+            setFetching(true)
 
-        axios
-            .get(`https://www.dnd5eapi.co${props.spell.url}`)
-            .then(spell => {
-                setSpellInfo(spell.data)
-                setFetching(false)
-            })
-            .catch(err => setError(err))
+            axios
+                .get(`https://www.dnd5eapi.co${props.spell.url}`)
+                .then(spell => {
+                    setSpellInfo(spell.data)
+                    setFetching(false)
+                    console.log(spellInfo)
+                })
+                .catch(err => setError(err))
+        }
     }
     
     return (
         <div onClick={handleClick} >
             <p>{props.spell.name}</p>
             {fetching && <p>fetching spell</p>}
+            {showSpell && <p>{spellInfo.desc}</p>}
         </div>
     )
 }

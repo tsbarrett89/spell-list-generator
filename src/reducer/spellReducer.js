@@ -3,7 +3,7 @@ import {
     FETCH_SPELLS_SUCCESS,
     FETCH_SPELLS_FAILURE,
     SAVE_SPELL
-} from '../actions'
+} from '../actions/spellActions'
 
 const initialState = {
     spells: [],

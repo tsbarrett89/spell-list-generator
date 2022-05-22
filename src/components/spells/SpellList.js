@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchSpells } from '../../actions';
+import { fetchSpells } from '../../actions/spellActions';
 
 import SpellCard from './SpellCard';
 

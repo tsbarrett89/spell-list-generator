@@ -6,11 +6,12 @@ import { loginUser } from '../../actions/authActions';
 
 const UserLogin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const dispatch = useDispatch()
 
     const onSubmit = data => {
         console.log(data)
 
-        dispatchEvent(loginUser(data))
+        dispatch(loginUser(data))
     }
 
     return (

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchSpells } from '../../actions';
 
+import SpellCard from './SpellCard';
+
 const SpellList = () => {
     const spellList = useSelector((state) => state.spells)
     const isFetching = useSelector((state) => state.isFetching)
@@ -15,9 +17,9 @@ const SpellList = () => {
     return (
         <div>
             {isFetching && <p>Loading Spells</p>}
-            {spellList.map((spell) => {
+            {spellList.map((spell, index) => {
                 return (
-                    <p>{spell.name}</p>
+                    <SpellCard spell={spell} key={index} />
                 )
             })}
         </div>

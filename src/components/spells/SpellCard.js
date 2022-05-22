@@ -7,16 +7,14 @@ const SpellCard = (props) => {
     const [ spellInfo, setSpellInfo ] = useState({})
     const [ error, setError ] = useState({})
 
-    handleClick = () => {
+    const handleClick = () => {
         setFetching(true)
-        useEffect(() => {
-            axios
-                .get(spell => {
-                    setShowSpell(true)
-                    setSpellInfo(spell)
-                })
-                .catch(err => setError(err))
-        }, [])
+        axios
+            .get(spell => {
+                setShowSpell(true)
+                setSpellInfo(spell)
+            })
+            .catch(err => setError(err))
     }
     
     return (

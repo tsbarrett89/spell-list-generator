@@ -13,7 +13,7 @@ function App() {
       <h1>Does this work?</h1>
       
       <Routes>
-        <Route path='/' element={<SpellList />} />
+        <Route path='/spells' element={<SpellList />} />
         <Route path='/login' element={<UserLogin />} />
         <Route path='/register' element={<UserRegistration />} />
       </Routes>

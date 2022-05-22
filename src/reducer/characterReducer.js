@@ -9,11 +9,29 @@ import {
 
 const initialState = {
     characters: [],
+    isFetching: false,
     errorMessage: ""
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
+        case FETCH_CHARACTERS_START:
+            return {
+                ...state,
+                isFetching: true
+            }
+        case FETCH_CHARACTERS_SUCCESS:
+            return {
+                ...state,
+                characters: action.payload,
+                isFetching: false
+            }
+        case FETCH_CHARACTERS_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                errorMessage: action.payload
+            }
         default: return state
     }
 }
